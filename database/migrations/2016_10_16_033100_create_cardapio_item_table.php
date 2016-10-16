@@ -15,6 +15,7 @@ class CreateCardapioItemTable extends Migration
     {
         Schema::create('cardapio_item', function (Blueprint $table) {
             $table->increments('id_cardapio_item');
+            $table->string('tx_cardapio_item');
             $table->integer('id_cardapio');
             $table->timestamps();
             $table->softDeletes();

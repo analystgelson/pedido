@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCardapiosTable extends Migration
+class CreateCardapioItemTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class CreateCardapiosTable extends Migration
      */
     public function up()
     {
-        Schema::create('cardapio', function (Blueprint $table) {
-                $table->increments('id_cardapio');
+        Schema::create('cardapio_item', function (Blueprint $table) {
+                $table->increments('id_cardapio_item');
+                $table->integer('id_cardapio');
                 $table->timestamps();
                 $table->softDeletes();
+                $table->foreign('id_cardapio')->references('id_cardapio')->on('cardapio');
         });
     }
 
@@ -27,6 +29,6 @@ class CreateCardapiosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cardapio');
+        Schema::dropIfExists('cardapio_item');
     }
 }

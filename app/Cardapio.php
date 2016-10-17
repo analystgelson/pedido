@@ -11,6 +11,7 @@ class Cardapio extends Model
 
     protected $table = 'cardapio';
     protected $primaryKey = 'id_cardapio';
+    protected $dates = ['deleted_at'];
     protected $fillable = ['id_cardapio', 'created_at', 'updated_at', 'deleted_at'];
 
     public function cardapioItem()
